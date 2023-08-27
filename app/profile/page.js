@@ -55,7 +55,7 @@ const Profile = () => {
                             Registered on
                         </label>
                         <p className="text-gray-800">
-                            {registrationTimestamp.toLocaleString()}
+                            {/* {registrationTimestamp.toLocaleString()} */}
                         </p>
                     </div>
                     <div className="mb-4">

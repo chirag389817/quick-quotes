@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-    title: "Authentication System",
-    description: "Simple authentication system"
+    title: "Quick Quotes",
+    description: "explore and make quick quotes"
 };
 
 export default function RootLayout({ children }) {

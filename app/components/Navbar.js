@@ -1,41 +1,59 @@
-import Link from "next/link";
-import Image from "next/image";
-import logo from "../../public/png/logo-no-background-white.png";
+"use client";
 
-const Navbar = ({ isAuthenticated }) => {
+import Link from "next/link";
+import { SessionProvider, signOut, useSession } from "next-auth/react";
+
+const NavbarUI = () => {
+    const data = useSession();
+    console.log(data);
     return (
-        <nav className="bg-blue-500 py-4">
+        <nav className="bg-blue-500 py-4 sticky top-0">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
-                        <Link href="/" className="text-white text-lg font-bold">
-                            <Image
-                                src={logo}
-                                alt="Logo"
-                                className="w-8 h-8"
-                                priority={true}
-                            />
+                        <Link
+                            href="/"
+                            className="text-white text-xl font-bold font-serif"
+                        >
+                            QQ
                         </Link>
                     </div>
                     <div className="flex items-center">
-                        {isAuthenticated ? (
+                        {data.status === "authenticated" ? (
                             <>
                                 <Link
                                     href="/profile"
-                                    className="text-white mr-4"
+                                    className="text-white mr-5"
                                 >
                                     Profile
                                 </Link>
-                                <Link href="/logout" className="text-white">
+                                <button
+                                    className="text-white cursor-pointer"
+                                    onClick={(e) =>
+                                        signOut({ redirect: false })
+                                    }
+                                >
                                     Logout
-                                </Link>
+                                </button>
                             </>
                         ) : (
                             <>
-                                <Link href="/login" className="text-white mr-4">
+                                <Link
+                                    href={{
+                                        pathname: "/auth/login",
+                                        query: { callbackUrl: "/" }
+                                    }}
+                                    className="text-white mr-5"
+                                >
                                     Login
                                 </Link>
-                                <Link href="/signup" className="text-white">
+                                <Link
+                                    href={{
+                                        pathname: "/auth/signup",
+                                        query: { callbackUrl: "/" }
+                                    }}
+                                    className="text-white"
+                                >
                                     Sign Up
                                 </Link>
                             </>
@@ -47,4 +65,10 @@ const Navbar = ({ isAuthenticated }) => {
     );
 };
 
-export default Navbar;
+export default function Navbar() {
+    return (
+        <SessionProvider>
+            <NavbarUI isAuthenticated={true} />
+        </SessionProvider>
+    );
+}
