@@ -16,7 +16,7 @@ function AddQuoteComponent() {
             body: JSON.stringify({ ...data })
         });
         if (res.statusText === "success") {
-            window.location.href = "/";
+            window.location = "/";
         } else {
             console.log(res);
             console.log(await res.json());
