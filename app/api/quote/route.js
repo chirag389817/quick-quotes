@@ -5,6 +5,8 @@ import { revalidatePath } from "next/cache";
 
 const prisma = new PrismaClient();
 
+export const revalidate = 0;
+
 export const POST = chkAuth(async (data) => {
     const { author, statement, email } = data;
     console.log(author, statement, email);
@@ -27,7 +29,7 @@ export const DELETE = chkAuth(async (data) => {
     const { id, email } = data;
     // console.log("delete quote", id, email);
     const quote = await prisma.quotes.delete({
-        where: { id }
+        where: { id, postedBy: email }
     });
     revalidatePath("/");
     return NextResponse.json(
