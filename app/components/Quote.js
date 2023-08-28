@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { AiFillDelete } from "react-icons/ai";
 import { Ubuntu } from "next/font/google";
 
@@ -11,7 +11,7 @@ const font = Ubuntu({
 });
 
 function Quote({ statement, author, id, allowDelete }) {
-    const router = useRouter();
+    // const router = useRouter();
     const deleteQuote = async (e) => {
         let res = await fetch("/api/quote", {
             method: "DELETE",
@@ -20,7 +20,8 @@ function Quote({ statement, author, id, allowDelete }) {
         });
         if (res.statusText === "success") {
             // window.location.reload();
-            router.refresh();
+            // router.refresh();
+            reload();
         } else {
             console.log(res);
             console.log(await res.json());
