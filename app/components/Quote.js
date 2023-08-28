@@ -19,7 +19,8 @@ function Quote({ statement, author, id, allowDelete }) {
             body: JSON.stringify({ id })
         });
         if (res.statusText === "success") {
-            window.location.reload();
+            // window.location.reload();
+            router.refresh();
         } else {
             console.log(res);
             console.log(await res.json());

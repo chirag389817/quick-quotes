@@ -16,7 +16,8 @@ function AddQuoteComponent() {
             body: JSON.stringify({ ...data })
         });
         if (res.statusText === "success") {
-            window.location = "/";
+            // router.prefetch("/")
+            router.push("/");
         } else {
             console.log(res);
             console.log(await res.json());
