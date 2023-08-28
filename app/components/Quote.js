@@ -20,8 +20,8 @@ function Quote({ statement, author, id, allowDelete, setQuotes }) {
         });
         const result = await res.json();
         if (!result.error) {
-            // window.location.reload();
-            router.refresh();
+            window.location.reload();
+            // router.refresh();
             // reload();
             // setQuotes((oldQuote) => oldQuote.filter((item) => item.id !== id));
         } else {

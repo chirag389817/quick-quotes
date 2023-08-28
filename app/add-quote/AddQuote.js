@@ -15,7 +15,8 @@ function AddQuoteComponent() {
             headers: { "Content-type": "application/json" },
             body: JSON.stringify({ ...data })
         });
-        if (res.statusText === "success") {
+        const result = await res.json();
+        if (!result.error) {
             router.push(callbackUrl);
         } else {
             console.log(res);
