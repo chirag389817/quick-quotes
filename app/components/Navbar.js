@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { SessionProvider, signOut, useSession } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 
 const NavbarUI = () => {
     const data = useSession();
-    console.log(data);
+    // console.log(data);
     return (
         <nav className="bg-blue-500 py-4 sticky top-0">
             <div className="max-w-7xl mx-auto px-4">
@@ -22,19 +22,17 @@ const NavbarUI = () => {
                         {data.status === "authenticated" ? (
                             <>
                                 <Link
+                                    href="/add-quote"
+                                    className="text-white mr-7"
+                                >
+                                    Add Quote
+                                </Link>
+                                <Link
                                     href="/profile"
                                     className="text-white mr-5"
                                 >
                                     Profile
                                 </Link>
-                                <button
-                                    className="text-white cursor-pointer"
-                                    onClick={(e) =>
-                                        signOut({ redirect: false })
-                                    }
-                                >
-                                    Logout
-                                </button>
                             </>
                         ) : (
                             <>
@@ -43,7 +41,7 @@ const NavbarUI = () => {
                                         pathname: "/auth/login",
                                         query: { callbackUrl: "/" }
                                     }}
-                                    className="text-white mr-5"
+                                    className="text-white mr-7"
                                 >
                                     Login
                                 </Link>
@@ -52,7 +50,7 @@ const NavbarUI = () => {
                                         pathname: "/auth/signup",
                                         query: { callbackUrl: "/" }
                                     }}
-                                    className="text-white"
+                                    className="text-white mr-5"
                                 >
                                     Sign Up
                                 </Link>

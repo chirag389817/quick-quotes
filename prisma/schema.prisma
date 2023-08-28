@@ -43,4 +43,12 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+}  
+
+model Quotes {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  postedOn      DateTime  @default(now())
+  statement     String
+  author        String
+  postedBy      String
 }   

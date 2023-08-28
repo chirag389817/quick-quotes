@@ -1,5 +1,5 @@
-# Authentication System
+# Quick Quotes
 
-### simple authentication system created using NextJS and MySQL and Tailwind CSS used for styling.
+### simple website created using NextJS, MongoDB, Tailwind CSS. Uses On-Demand ISR for home page quotes.
 
-### Users can sigup, login, logout and view & edit their profile.
+### Users can sigup, login, logout and view & edit their profile. They can add their quotes and read other quotes.
