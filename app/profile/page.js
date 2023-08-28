@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import { PrismaClient } from "@prisma/client";
 import Quote from "../components/Quote";
+import QuotesGroup from "../components/QuotesGroup";
 
 // export const revalidate = 0;
 
@@ -20,9 +21,7 @@ async function page() {
     return (
         <div>
             <Profile name={session.user.name} email={session.user.email} />
-            {quotes.map((quote) => (
-                <Quote key={quote.id} {...quote} allowDelete={true} />
-            ))}
+            <QuotesGroup data={quotes} allowDelete={true} />
         </div>
     );
 }

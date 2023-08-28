@@ -2,11 +2,12 @@
 
 import { useForm } from "react-hook-form";
 import FormField from "../components/FormField";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 function AddQuoteComponent() {
     const form = useForm();
     const callbackUrl = useSearchParams().get("callbackUrl");
+    const router = useRouter();
     const onSubmit = async (data) => {
         console.log(data);
         let res = await fetch("/api/quote", {
@@ -15,7 +16,7 @@ function AddQuoteComponent() {
             body: JSON.stringify({ ...data })
         });
         if (res.statusText === "success") {
-            pushReload("/");
+            router.push(callbackUrl);
         } else {
             console.log(res);
             console.log(await res.json());

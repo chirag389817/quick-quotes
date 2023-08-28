@@ -10,7 +10,7 @@ const font = Ubuntu({
     display: "swap"
 });
 
-function Quote({ statement, author, id, allowDelete }) {
+function Quote({ statement, author, id, allowDelete, setQuotes }) {
     // const router = useRouter();
     const deleteQuote = async (e) => {
         let res = await fetch("/api/quote", {
@@ -21,7 +21,8 @@ function Quote({ statement, author, id, allowDelete }) {
         if (res.statusText === "success") {
             // window.location.reload();
             // router.refresh();
-            reload();
+            // reload();
+            setQuotes((oldQuote) => oldQuote.filter((item) => item.id !== id));
         } else {
             console.log(res);
             console.log(await res.json());
