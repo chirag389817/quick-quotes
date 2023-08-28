@@ -17,6 +17,10 @@ export default async function Page() {
     return (
         <div>
             <Navbar />
+            <Quote
+                statement="this one is the longest quote i have ever seen or wrote. I am so nervous if this will work or not. this one is the longest quote i have ever seen or wrote. I am so nervous if this will work or not. "
+                author="chirag"
+            />
             {quotes.map((quote) => (
                 <Quote
                     key={quote.id}

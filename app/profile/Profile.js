@@ -15,7 +15,9 @@ const Profile = ({ name, email }) => {
             <Navbar />
             <div className="max-w-7xl mx-auto px-4 mt-8">
                 <div className="bg-white p-8 rounded shadow flex flex-col">
-                    <h1 className="text-2xl font-bold mb-4">Profile</h1>
+                    <h1 className="text-xl font-bold mb-4 text-gray-800">
+                        Profile
+                    </h1>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2 cursor-pointer">
                             Name

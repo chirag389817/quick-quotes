@@ -27,9 +27,9 @@ function Quote({ statement, author, id, allowDelete, setQuotes }) {
     return (
         <div className={`max-w-4xl mx-auto px-4 my-5 ${font.className}`}>
             <div className="bg-white py-5 rounded shadow flex items-center">
-                <div className="flex-1 px-5 ">
-                    <h1 className="text-md md:text-2xl font-bold text-slate-800">
-                        {`"${statement}"`}
+                <div className="flex-1 px-5">
+                    <h1 className="text-md md:text-2xl font-bold text-slate-800 text-justify mb-1">
+                        {`" ${statement.trim()} "`}
                     </h1>
                     <span className="block md:text-lg text-end text-sm">
                         &nbsp; - &nbsp;

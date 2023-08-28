@@ -1,6 +1,7 @@
 import GoogleBtn from "../components/GoogleBtn";
 import Image from "next/image";
 import logo from "../../public/logo.png";
+import LineThroughText from "../components/LineThroughText";
 
 export const metadata = {
     title: "authentication",
@@ -9,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center bg-blue-50">
+        <div className="min-h-screen flex flex-col justify-center items-center">
             <div className="bg-white p-8 shadow-md rounded-md w-96">
                 <div className="mb-4 flex justify-center">
                     <Image
@@ -21,7 +22,7 @@ export default function RootLayout({ children }) {
                 </div>
                 {children}
             </div>
-            <h1 className="mt-2">OR</h1>
+            <LineThroughText>OR</LineThroughText>
             <GoogleBtn />
         </div>
     );
