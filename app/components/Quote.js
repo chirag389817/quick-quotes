@@ -20,10 +20,10 @@ function Quote({ statement, author, id, allowDelete, setQuotes }) {
         });
         const result = await res.json();
         if (!result.error) {
-            window.location.reload();
+            // window.location.reload();
             // router.refresh();
             // reload();
-            // setQuotes((oldQuote) => oldQuote.filter((item) => item.id !== id));
+            setQuotes((oldQuote) => oldQuote.filter((item) => item.id !== id));
         } else {
             console.log(res);
             console.log(await res.json());

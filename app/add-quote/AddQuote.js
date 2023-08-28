@@ -17,7 +17,8 @@ function AddQuoteComponent() {
         });
         const result = await res.json();
         if (!result.error) {
-            router.push(callbackUrl);
+            // router.push(callbackUrl);
+            window.location.href = callbackUrl;
         } else {
             console.log(res);
             console.log(await res.json());
