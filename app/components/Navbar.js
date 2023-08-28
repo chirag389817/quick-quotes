@@ -22,7 +22,10 @@ const NavbarUI = () => {
                         {data.status === "authenticated" ? (
                             <>
                                 <Link
-                                    href="/add-quote"
+                                    href={{
+                                        pathname: "/add-quote",
+                                        query: { callbackUrl: "/" }
+                                    }}
                                     className="text-white mr-7"
                                 >
                                     Add Quote

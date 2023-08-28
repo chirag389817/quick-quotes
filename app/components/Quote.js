@@ -2,6 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { AiFillDelete } from "react-icons/ai";
+import { Ubuntu } from "next/font/google";
+
+const font = Ubuntu({
+    weight: "400",
+    subsets: ["latin"],
+    display: "swap"
+});
 
 function Quote({ statement, author, id, allowDelete }) {
     const router = useRouter();
@@ -19,20 +26,20 @@ function Quote({ statement, author, id, allowDelete }) {
         }
     };
     return (
-        <div className="max-w-4xl mx-auto px-4 mt-8">
-            <div className="bg-white p-8 rounded shadow flex items-center">
-                <div className="flex-1 pr-5">
-                    <h1 className="text-2xl font-bold mb-4 text-slate-800">
+        <div className={`max-w-4xl mx-auto px-4 my-5 ${font.className}`}>
+            <div className="bg-white py-5 rounded shadow flex items-center">
+                <div className="flex-1 px-5 ">
+                    <h1 className="text-md md:text-2xl font-bold text-slate-800">
                         {`"${statement}"`}
                     </h1>
-                    <span className="block text-end text-xl pr-5">
+                    <span className="block md:text-lg text-end text-sm">
                         &nbsp; - &nbsp;
                         {author}
                     </span>
                 </div>
                 {allowDelete && (
                     <AiFillDelete
-                        className="p-1 rounded-md bg-red-400 text-white text-3xl cursor-pointer hover:bg-red-600"
+                        className="p-1 mr-2 rounded-md bg-red-400 text-white text-3xl cursor-pointer hover:bg-red-600"
                         onClick={deleteQuote}
                     />
                 )}
