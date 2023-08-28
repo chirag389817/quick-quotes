@@ -21,9 +21,7 @@ const NavbarUI = () => {
                         </Link>
                     </div>
                     <div className="flex items-center">
-                        {data.status === "authenticated" ? (
-                            <>
-                                <Link
+<Link
                                     href={{
                                         pathname: "/add-quote",
                                         query: { callbackUrl: path }
@@ -32,7 +30,10 @@ const NavbarUI = () => {
                                 >
                                     Add Quote
                                 </Link>
-                                <Link
+
+                        {data.status === "authenticated" ? (
+                            <>
+                                                                <Link
                                     href="/profile"
                                     className="text-white mr-5"
                                 >
