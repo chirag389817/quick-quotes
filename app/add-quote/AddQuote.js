@@ -2,12 +2,11 @@
 
 import { useForm } from "react-hook-form";
 import FormField from "../components/FormField";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 function AddQuoteComponent() {
     const form = useForm();
     const callbackUrl = useSearchParams().get("callbackUrl");
-    const router = useRouter();
     const onSubmit = async (data) => {
         console.log(data);
         let res = await fetch("/api/quote", {
@@ -17,7 +16,6 @@ function AddQuoteComponent() {
         });
         const result = await res.json();
         if (!result.error) {
-            // router.push(callbackUrl);
             window.location.href = callbackUrl;
         } else {
             console.log(res);

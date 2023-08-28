@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { SessionProvider, useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 const NavbarUI = () => {
     const data = useSession();
+    const path = usePathname();
     // console.log(data);
     return (
         <nav className="bg-blue-500 py-4 sticky top-0">
@@ -24,7 +26,7 @@ const NavbarUI = () => {
                                 <Link
                                     href={{
                                         pathname: "/add-quote",
-                                        query: { callbackUrl: "/" }
+                                        query: { callbackUrl: path }
                                     }}
                                     className="text-white mr-7"
                                 >
@@ -42,7 +44,7 @@ const NavbarUI = () => {
                                 <Link
                                     href={{
                                         pathname: "/auth/login",
-                                        query: { callbackUrl: "/" }
+                                        query: { callbackUrl: path }
                                     }}
                                     className="text-white mr-7"
                                 >
@@ -51,7 +53,7 @@ const NavbarUI = () => {
                                 <Link
                                     href={{
                                         pathname: "/auth/signup",
-                                        query: { callbackUrl: "/" }
+                                        query: { callbackUrl: path }
                                     }}
                                     className="text-white mr-5"
                                 >
