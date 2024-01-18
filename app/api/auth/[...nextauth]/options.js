@@ -51,6 +51,20 @@ export const authOptions = {
             }
         })
     ],
+    callbacks: {
+        async signIn(data) {
+            console.log("sign callback: ", data);
+            return true;
+        },
+        async session(data) {
+            console.log("session callback: ", data);
+            return data.session;
+        },
+        async jwt(data) {
+            console.log("jwt callback: ", data);
+            return data.token;
+        }
+    },
     pages: {
         signIn: "/auth/login"
     },
