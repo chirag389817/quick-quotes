@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const NavbarUI = () => {
     const data = useSession();
     const path = usePathname();
-    // console.log(data);
+    console.log("navbar session data: ", data);
     return (
         <nav className="bg-blue-500 py-4 sticky top-0">
             <div className="max-w-7xl mx-auto px-4">
@@ -21,19 +21,19 @@ const NavbarUI = () => {
                         </Link>
                     </div>
                     <div className="flex items-center">
-<Link
-                                    href={{
-                                        pathname: "/add-quote",
-                                        query: { callbackUrl: path }
-                                    }}
-                                    className="text-white mr-7"
-                                >
-                                    Add Quote
-                                </Link>
+                        <Link
+                            href={{
+                                pathname: "/add-quote",
+                                query: { callbackUrl: path }
+                            }}
+                            className="text-white mr-7"
+                        >
+                            Add Quote
+                        </Link>
 
                         {data.status === "authenticated" ? (
                             <>
-                                                                <Link
+                                <Link
                                     href="/profile"
                                     className="text-white mr-5"
                                 >
